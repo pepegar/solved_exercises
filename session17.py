@@ -29,6 +29,29 @@ def parse_csv(filename, separator=","):
 csv = parse_csv("data.csv")
 
 
-
-
+def copy_file(origin, destination):
+    
+    try:
+        origin_file = open(origin)
+        destination_file = open(destination, "w")
+        
+        for line in origin_file:
+            destination_file.write(line)
+            
+        destination_file.close()
+        
+    except Exception:
+        print("something went wrong")    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
