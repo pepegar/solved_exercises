@@ -1,16 +1,15 @@
 
 #%%
 class Product:
-    
     def __init__(self, name, price):
         self.name = name
         self.price = price
+
+class Item(Product):
+    pass
         
-class Service:
-    
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
+class Service(Product):
+    pass
         
 class Tier:
     
@@ -24,7 +23,7 @@ class Tier:
         if self.name == "gold":
             return 0.95 * item.price
         elif self.name == "silver":
-            if isinstance(item, Product):
+            if isinstance(item, Item):
                 return 0.98 * item.price
             else:
                 return item.price
@@ -32,8 +31,8 @@ class Tier:
             return item.price
             
 cart = [
-        Product("guitar", 1000),
-        Product("pick box", 5),
+        Item("guitar", 1000),
+        Item("pick box", 5),
         Service("Insurance", 5),
         Service("Insurance", 5)
         ]
