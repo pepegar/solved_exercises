@@ -43,6 +43,9 @@ silver_tier = Tier("silver")
 gold_tier = Tier("gold")
 
 
+class ServiceDuplicatedException(Exception):
+    pass
+
 def checkout(shopping_cart, tier=normal_tier): 
     if  shopping_cart == []:
         print("go back shopping!")
@@ -56,7 +59,7 @@ def checkout(shopping_cart, tier=normal_tier):
         
         if isinstance(item, Service):
             if item.name in services_in_cart:
-                continue            
+                raise ServiceDuplicatedException("services can be purchased only once")            
             else:
                 services_in_cart.add(item.name)
             
